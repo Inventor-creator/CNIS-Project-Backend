@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 origins = [
-    "https://cnis-attack-frontend.vercel.app/"
+    "https://cnis-attack-frontend.vercel.app"
 ]
 
 app.add_middleware(

@@ -1,12 +1,22 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
+from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(
-    title="Vercel + FastAPI",
-    description="Vercel + FastAPI",
-    version="1.0.0",
+app = FastAPI()
+
+origins = [
+    "https://cnis-attack-frontend.vercel.app/"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,            # List of allowed origins
+    allow_credentials=True,           # Allow cookies/authentication headers
+    allow_methods=["*"],               # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],               # Allow all headers
 )
+
 cache = {}
 
 
